@@ -1,0 +1,58 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+
+    type:
+        label: winter.sitemap::lang.item.type
+        type: dropdown
+
+    url:
+        label: winter.sitemap::lang.item.url
+
+    reference:
+        label: winter.sitemap::lang.item.reference
+        type: dropdown
+        cssClass: input-sidebar-control
+
+    cmsPage:
+        label: winter.sitemap::lang.item.cms_page
+        comment: winter.sitemap::lang.item.cms_page_comment
+        type: dropdown
+        cssClass: input-sidebar-control
+
+    nesting:
+        label: winter.sitemap::lang.item.allow_nested_items
+        comment: winter.sitemap::lang.item.allow_nested_items_comment
+        type: checkbox
+        default: true
+
+    priority:
+        span: left
+        label: winter.sitemap::lang.item.priority
+        type: dropdown
+        options:
+            '0.1': '0.1'
+            '0.2': '0.2'
+            '0.3': '0.3'
+            '0.4': '0.4'
+            '0.5': '0.5'
+            '0.6': '0.6'
+            '0.7': '0.7'
+            '0.8': '0.8'
+            '0.9': '0.9'
+            '1.0': '1.0'
+
+    changefreq:
+        span: right
+        label: winter.sitemap::lang.item.changefreq
+        type: dropdown
+        options:
+            always: winter.sitemap::lang.item.always
+            hourly: winter.sitemap::lang.item.hourly
+            daily: winter.sitemap::lang.item.daily
+            weekly: winter.sitemap::lang.item.weekly
+            monthly: winter.sitemap::lang.item.monthly
+            yearly: winter.sitemap::lang.item.yearly
+            never: winter.sitemap::lang.item.never

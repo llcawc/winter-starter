@@ -1,0 +1,13 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+tabs:
+    stretch: true
+    cssClass: tabs-no-inset
+
+    fields:
+        items:
+            stretch: true
+            tab: winter.sitemap::lang.item.definition
+            type: Winter\Sitemap\FormWidgets\SitemapItems

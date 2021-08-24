@@ -1,0 +1,85 @@
+title = "Post"
+url = "/blog/post/:slug"
+layout = "default"
+description = "One post"
+meta_description = "New vision in cafe industry"
+is_hidden = 0
+
+[blogPost]
+slug = "{{ :slug }}"
+categoryPage = "blog/category"
+
+==
+<?php
+function onEnd()
+{
+    // Optional - set the page title to the post title
+    if ($this->post)
+        $this->page->title = $this->post->title;
+}
+?>
+==
+{% set mnths = ['','января','февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря'] %}
+{% set days = ['','Понедельник','Вторник','Среда','Четверг','Пятница', 'Суббота', 'Воскресенье'] %}
+{% set nextPost = blogPost.nextPost %}
+{% set prevPost = blogPost.previousPost %}
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-sm-12">
+
+      <div class="row mb-3">
+        <p class="col-sm-6 m-0 text-center text-sm-start">
+          <span>
+            {{ days[post.published_at|date("N")] }}{{
+              post.published_at|date(", j ") }}{{
+              mnths[post.published_at|date("n")] }}{{
+              post.published_at|date(" Y") }}
+          </span><span class="ps-3"><i class="bi bi-eye"></i>&nbsp;{{post.views}}</span>
+        </p>
+        <p class="col-sm-6 m-0 text-center text-sm-end">
+          <span>
+            <!-- {% set categories = post.categories | map(c => "#{c.name}") | join(', ') %} {{categories | raw}} -->
+            Categories:
+            {% for category in post.categories %}
+            <a href="{{ category.url }}">{{ category.name }}</a>{% if not loop.last %}, {% endif %}
+            {% endfor %}
+          </span>
+        </p>
+      </div>
+
+      {{ post.content_html|raw }}
+
+      {% if post.featured_images.count %}
+      <div class="gallery popup-gallery">
+        {% for image in post.featured_images %}
+        <figure>
+          <a href="{{ image.path }}" title="{{ image.description }}">
+            <img data-src="{{ image.filename }}" src="{{ image.path }}" alt="{{ image.description }}" />
+          </a>
+        </figure>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+    </div>
+  </div>
+
+  <div class="row">
+
+    <div class="col-6 text-start">
+      {% if prevPost %}
+      <a href="{{ prevPost.url }}"><i class="bi bi-arrow-left"></i><br><span><strong>Предыдущий пост:</strong></span><br>"{{ prevPost.title }}"</a>
+      {% endif %}
+    </div>
+
+    <div class="col-6 text-end">
+      {% if nextPost %}
+      <a href="{{ nextPost.url }}"><i class="bi bi-arrow-right"></i><br><span><strong>Следующий пост:</strong></span><br>"{{ nextPost.title }}"</a>
+      {% endif %}
+    </div>
+
+  </div>
+
+</div>

@@ -1,0 +1,36 @@
+description = "header"
+
+[viewBag]
+==
+<header class="container-fluid">
+
+  <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark navbar-autohide">
+    <div class="container-md">
+      <a class="navbar-brand fw-bold fs-4" href="{{ 'home'|page }}">Mockup</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Переключатель навигации">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav text-end fs-5 mt-lg-0 mt-2">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="{{ 'home'|page }}"><i class="bi bi-house"></i> Home</a>
+          </li>
+          <li class="nav-item ps-3">
+            <a class="nav-link" href=" {{'blog'|page}} "><i class="bi bi-pencil-square"></i> Blog</a>
+          </li>
+          <li class="nav-item ps-3">
+            <a class="nav-link" href="{{ 'contacts'|page }}"><i class="bi bi-geo"></i> Contacts</a>
+          </li>
+          <li class="nav-item ps-3">
+            <a class="nav-link" href="/backend"><i class="bi bi-speedometer2"></i></i> Backend</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="row">
+    <h1 class="col section">{{ this.page.title }}</h1>
+  </div>
+
+</header>

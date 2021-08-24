@@ -1,0 +1,156 @@
+// _config.scss
+@use "sass:math";
+
+// USER VARIABLES SECTION
+
+$accent: #f58220;
+$dark: #1d1d1d;
+$textcolor: #595959;
+$fontsize: 1rem;
+$lineheight: 1.5;
+$userfont: awcOpenSans,
+sans-serif;
+
+// IMPORT SECTION
+
+// BOOTSTRAP
+@import "bootstrap";
+@import "bootstrap-icons";
+
+// Require vendor files
+$mfp-iframe-ratio: math.div(9, 16); // 9/16 Ratio of iframe (9/16 = widescreen, 3/4 = standard, etc.)
+@import "../vendor/magnific-popup/main";
+
+// FONTS LOAD SECTION
+
+@mixin font($fname, $fstyle, $fweight, $furl) {
+  @font-face {
+    font-family: $fname;
+    font-style: $fstyle;
+    font-weight: $fweight;
+    src: url($furl) format("woff2");
+  }
+}
+
+@include font("awcOpenSans", normal, 300, "../fonts/open-sans-300.woff2");
+@include font("awcOpenSans", italic, 300, "../fonts/open-sans-300italic.woff2");
+@include font("awcOpenSans", normal, 400, "../fonts/open-sans-regular.woff2");
+@include font("awcOpenSans", italic, 400, "../fonts/open-sans-italic.woff2");
+@include font("awcOpenSans", normal, 700, "../fonts/open-sans-700.woff2");
+@include font("awcOpenSans", italic, 700, "../fonts/open-sans-700italic.woff2");
+
+// GENERAL PROJECT STYLES
+
+::placeholder {
+  color: $textcolor;
+}
+
+::selection {
+  background-color: rgba(mix(white, $accent, 60%), 0.4);
+  color: inherit;
+}
+
+input,
+textarea {
+  outline: none;
+
+  &:focus:required:invalid {
+    border-color: red;
+  }
+
+  &:required:valid {
+    border-color: green;
+  }
+}
+
+body {
+  font-family: $userfont;
+  font-size: $fontsize;
+  font-weight: normal;
+  line-height: $lineheight;
+  color: $textcolor;
+  min-width: 320px;
+  position: relative;
+  overflow-x: hidden;
+  padding-top: 4rem; //64px
+}
+
+// --- Button to top scroll  --------
+$bott: 90px;
+$righ: 20px;
+
+#scrolltotop {
+  background-color: rgba($accent, 0.5);
+  opacity: 0;
+  transition: background-color 0.4s, box-shadow 0.4s, opacity 1.2s ease;
+  bottom: $bott;
+  right: $righ;
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  position: fixed;
+  z-index: 199;
+
+  svg {
+    stroke: #fff;
+    width: 24px;
+    height: 24px;
+    margin: (40px - 24px) * 0.5;
+  }
+
+  &:hover {
+    background-color: $accent;
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+  }
+
+  &:active {
+    transform: scale(0.95);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  }
+
+  &.on {
+    opacity: 1 !important;
+    animation: up 1.2s ease;
+    cursor: pointer;
+  }
+
+  &.down {
+    animation: down 1.2s ease;
+  }
+}
+
+@keyframes up {
+  0% {
+    bottom: 0px;
+  }
+
+  30% {
+    bottom: $bott;
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes down {
+  0% {
+    transform: rotate(0deg);
+    opacity: 1;
+  }
+
+  70% {
+    opacity: 1;
+    bottom: $bott;
+    transform: rotate(-360deg);
+  }
+
+  100% {
+    opacity: 0;
+    bottom: 0px;
+    transform: rotate(-360deg);
+  }
+}
+
+// --- END button to top scroll ---

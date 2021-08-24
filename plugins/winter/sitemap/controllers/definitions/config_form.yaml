@@ -1,0 +1,21 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: winter.sitemap::lang.item.definition
+
+# Model Form Field configuration
+form: $/winter/sitemap/models/definition/fields.yaml
+
+# Model Class name
+modelClass: Winter\Sitemap\Models\Definition
+
+# Default redirect location
+defaultRedirect: system/settings
+
+# Update page
+update:
+    title: winter.sitemap::lang.plugin.name
+    redirect: winter/sitemap/definitions
+    redirectClose: system/settings

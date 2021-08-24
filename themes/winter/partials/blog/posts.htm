@@ -1,0 +1,73 @@
+[viewBag]
+==
+{% set posts = blogPosts.posts %}
+{% set mnths = ['','января','февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря'] %}
+{% set days = ['','Понедельник','Вторник','Среда','Четверг','Пятница', 'Суббота', 'Воскресенье'] %}
+
+<div class="post-list">
+    {% for post in posts %}
+        <div class="media">
+
+            <div class="media-body">
+                <h3 class="media-heading">
+                    <a href="{{ post.url }}">{{ post.title }}</a>
+                </h3>
+                <p class="info">
+                    Posted
+                    {% if post.categories.count %} in {% endif %}
+                    {% for category in post.categories %}
+                        <a href="{{ category.url }}">{{ category.name }}</a>{% if not loop.last %}, {% endif %}
+                    {% endfor %}
+                    on <span class="date">
+                        {{ days[post.published_at|date("N")] }}{{
+                        post.published_at|date(", j ") }}{{
+                        mnths[post.published_at|date("n")] }}{{
+                        post.published_at|date(" Y") }}</span>
+                    
+                      <!--   {{ post.published_at|date('M d, Y') }} -->
+                </p>
+
+                {% if post.excerpt %}
+                
+                  <div class="media-left float-start me-3">
+                    <a href="{{ post.url }}">
+                      {% if post.featured_images.count > 0 %}
+                          <img class="media-object" src="{{ post.featured_images.first.getThumb(100, 'auto') }}" />
+                      {% else %}
+                          <img class="media-object" src="https://via.placeholder.com/100x120" />
+                      {% endif %}
+                    </a>
+                    </div>
+                
+                    <p class="excerpt">{{ post.excerpt }}</p>
+                    
+                {% else %}
+                    <div class="content">{{ post.content_html|raw }}</div>
+                    
+                {% endif %}
+            </div>
+        </div>
+    {% else %}
+        <div class="no-data">
+            <p>{{ noPostsMessage }}</p>
+        </div>
+    {% endfor %}
+</div>
+
+{% if posts.lastPage > 1 %}
+    <ul class="pagination">
+        {% if posts.currentPage > 1 %}
+            <li><a href="{{ this.page.baseFileName|page({ (pageParam): (posts.currentPage-1) }) }}">&larr; Prev</a></li>
+        {% endif %}
+
+        {% for page in 1..posts.lastPage %}
+            <li class="{{ posts.currentPage == page ? 'active' : null }}">
+                <a href="{{ this.page.baseFileName|page({ (pageParam): page }) }}">{{ page }}</a>
+            </li>
+        {% endfor %}
+
+        {% if posts.lastPage > posts.currentPage %}
+            <li><a href="{{ this.page.baseFileName|page({ (pageParam): (posts.currentPage+1) }) }}">Next &rarr;</a></li>
+        {% endif %}
+    </ul>
+{% endif %}

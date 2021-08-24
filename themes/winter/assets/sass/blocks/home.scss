@@ -1,0 +1,88 @@
+// home.scss
+@use "sass:math";
+
+.section {
+  text-align: center;
+  margin: $gutter auto;
+  padding: ($gutter * 0.5) 0;
+  background-color: #eee;
+}
+
+#popup {
+  position: relative;
+  width: auto;
+  max-width: 18rem;
+  height: auto;
+  margin: 2rem auto;
+  padding: 3rem;
+  background-color: #fff;
+  text-align: center;
+}
+
+.white-popup {
+  position: relative;
+  background: #fff;
+  padding: 40px;
+  width: auto;
+  max-width: 200px;
+  margin: 20px auto;
+  text-align: center;
+}
+
+.gallery {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: start;
+  padding: $gutter 0;
+
+  figure {
+    $imgwidth: 100%;
+    width: $imgwidth;
+    height: math.div(10, 16) * $imgwidth;
+    display: inline-block;
+    margin: $gutter * 0.375 $gutter * 0.25;
+    padding: 0.25rem;
+    border-radius: 0.25rem;
+    border: 1px solid #ccc;
+    transition: 0.25s;
+
+    @include media-breakpoint-up(sm) {
+      width: 10.8rem;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    &:hover {
+      transform: translateY(-0.125rem);
+      box-shadow: 0px 3px 7px rgba(#000, 0.25);
+    }
+  }
+}
+
+.post-img {
+  @include media-breakpoint-up(sm) {
+    margin-right: $gutter * 0.5;
+    width: 15rem;
+  }
+}
+
+.blog-img {
+  @include media-breakpoint-up(sm) {
+    margin-right: $gutter * 0.5;
+    width: 8rem;
+  }
+}
+
+.flat {
+  height: 100vh;
+  margin-top: -4rem;
+  background-color: $dark;
+  display: flex;
+  align-items: center;
+}

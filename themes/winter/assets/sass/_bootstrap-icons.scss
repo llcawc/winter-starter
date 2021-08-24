@@ -1,0 +1,63 @@
+// BOOTSTRAP ICON FONTS LOAD SECTION
+
+@font-face {
+  font-family: "bootstrap-icons";
+  src: url("../vendor/bootstrap-icons/fonts/bootstrap-icons.woff2?856008caa5eb66df68595e734e59580d") format("woff2"),
+    url("../vendor/bootstrap-icons/fonts/bootstrap-icons.woff?856008caa5eb66df68595e734e59580d") format("woff");
+}
+
+[class^="bi-"]::before,
+[class*=" bi-"]::before {
+  display: inline-block;
+  font-family: bootstrap-icons !important;
+  font-style: normal;
+  font-weight: normal !important;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  vertical-align: -.125em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Add the necessary entries here from the source file
+
+.bi-person-circle::before {
+  content: "\f4d7";
+}
+
+.bi-eye-fill::before {
+  content: "\f33e";
+}
+
+.bi-eye::before {
+  content: "\f341";
+}
+
+.bi-arrow-right::before {
+  content: "\f138";
+}
+
+.bi-arrow-left::before {
+  content: "\f12f";
+}
+
+.bi-house-fill::before {
+  content: "\f424";
+}
+
+.bi-pencil-square::before {
+  content: "\f4ca";
+}
+
+.bi-house::before {
+  content: "\f425";
+}
+
+.bi-geo::before {
+  content: "\f3ea";
+}
+
+.bi-speedometer2::before {
+  content: "\f580";
+}
