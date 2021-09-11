@@ -1,39 +1,36 @@
 // home.scss
 @use "sass:math";
 
+.nav-autohide {
+  transition: 0.5s;
+  &.is-hidden {
+    transform: translateY(-(3.875rem + 0.125rem));
+    box-shadow: none;
+  }
+}
+
 .section {
   text-align: center;
   margin: $gutter auto;
-  padding: ($gutter * 0.5) 0;
+  padding-top: $gutter * 0.5;
+  padding-bottom: $gutter * 0.5;
   background-color: #eee;
 }
 
-#popup {
-  position: relative;
-  width: auto;
-  max-width: 18rem;
-  height: auto;
-  margin: 2rem auto;
-  padding: 3rem;
-  background-color: #fff;
-  text-align: center;
-}
-
-.white-popup {
-  position: relative;
-  background: #fff;
-  padding: 40px;
-  width: auto;
-  max-width: 200px;
-  margin: 20px auto;
-  text-align: center;
+.pswinit {
+  cursor: pointer;
+  transition: 0.25s;
+  &:hover {
+    transform: translateY(-0.125rem);
+    box-shadow: 0px 3px 7px rgba(#000, 0.25);
+  }
 }
 
 .gallery {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  align-items: start;
+  align-items: flex-start;
   padding: $gutter 0;
 
   figure {

@@ -1,6 +1,6 @@
 {
   "name": "winstart",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "homepage": "https://github.com/llcawc",
   "license": "MIT",
   "author": "pasmurno by llcawc",
@@ -17,44 +17,53 @@
     "type": "git",
     "url": "https://github.com/llcawc/winstart.git"
   },
+  "main": "index.js",
+  "type": "module",
   "scripts": {
     "dev": "gulp",
-    "assets": "gulp assets",
+    "build": "gulp build",
     "deploy": "gulp deploy"
   },
+  "browserslist": [
+    "last 2 major versions",
+    "> 1%",
+    "Firefox ESR",
+    "iOS >= 12",
+    "Safari >= 12",
+    "not Explorer <= 11",
+    "not dead"
+  ],
   "devDependencies": {
-    "@babel/core": "^7.15.0",
-    "@babel/preset-env": "^7.15.0",
+    "@babel/core": "^7.15.5",
+    "@babel/preset-env": "^7.15.4",
+    "autoprefixer": "^10.3.4",
     "babel-loader": "^8.2.2",
     "babel-plugin-module-resolver": "^4.1.0",
     "babel-plugin-root-import": "^6.6.0",
     "browser-sync": "^2.27.5",
+    "cssnano": "^5.0.8",
     "gulp": "^4.0.2",
-    "gulp-autoprefixer": "^8.0.0",
-    "gulp-clean-css": "^4.3.0",
+    "gulp-imagemin": "^8.0.0",
+    "gulp-newer": "^1.4.0",
     "gulp-notify": "^4.0.0",
     "gulp-plumber": "^1.2.1",
+    "gulp-postcss": "^9.0.1",
     "gulp-rename": "^2.0.0",
     "gulp-rsync": "0.0.9",
     "gulp-sass": "^5.0.0",
     "gulp-sass-glob": "^1.1.0",
     "gulp-sourcemaps": "^3.0.0",
-    "sass": "^1.38.1",
-    "webpack-stream": "^6.1.2"
+    "postcss": "^8.3.6",
+    "sass": "^1.39.0",
+    "terser-webpack-plugin": "^5.2.3",
+    "webpack": "^5.52.0",
+    "webpack-stream": "^7.0.0"
   },
-  "browserslist": [
-    "last 2 version",
-    "> 1%",
-    "IE 11"
-  ],
   "dependencies": {
-    "@popperjs/core": "^2.9.3",
-    "bootstrap": "^5.1.0",
+    "@popperjs/core": "^2.10.1",
+    "bootstrap": "^5.1.1",
     "bootstrap-icons": "^1.5.0",
-    "isotope-layout": "^3.0.6",
     "jquery": "^3.6.0",
-    "magnific-popup": "^1.1.0",
-    "photoswipe": "^4.1.3",
-    "postcss": "^8.3.6"
+    "photoswipe": "git://github.com/dimsemenov/photoswipe.git#v5-beta"
   }
 }

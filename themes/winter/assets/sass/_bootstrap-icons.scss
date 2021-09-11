@@ -2,8 +2,10 @@
 
 @font-face {
   font-family: "bootstrap-icons";
-  src: url("../vendor/bootstrap-icons/fonts/bootstrap-icons.woff2?856008caa5eb66df68595e734e59580d") format("woff2"),
-    url("../vendor/bootstrap-icons/fonts/bootstrap-icons.woff?856008caa5eb66df68595e734e59580d") format("woff");
+  src: url("../fonts/bootstrap-icons.woff2?856008caa5eb66df68595e734e59580d")
+      format("woff2"),
+    url("../fonts/bootstrap-icons.woff?856008caa5eb66df68595e734e59580d")
+      format("woff");
 }
 
 [class^="bi-"]::before,
@@ -15,7 +17,7 @@
   font-variant: normal;
   text-transform: none;
   line-height: 1;
-  vertical-align: -.125em;
+  vertical-align: -0.125em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

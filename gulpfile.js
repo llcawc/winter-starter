@@ -18,6 +18,11 @@ let paths = {
     dest: `themes/${theme}/assets/css`,
   },
 
+  images: {
+    src: `themes/${theme}/assets/src/**/*`,
+    dest: `themes/${theme}/assets/images`,
+  },
+
   deploy: {
     hostname: "host.ru", // Deploy hostname
     destination: "domen.ru/www/", // Deploy destination
@@ -56,18 +61,26 @@ let paths = {
 
 // LOGIC
 
-const { src, dest, parallel, series, watch } = require("gulp");
-const browserSync = require("browser-sync").create();
-const webpack = require("webpack-stream");
-const sass = require("gulp-sass")(require("sass"));
-const sassglob = require("gulp-sass-glob");
-const plumber = require("gulp-plumber");
-const cleancss = require("gulp-clean-css");
-const autoprefixer = require("gulp-autoprefixer");
-const sourcemaps = require("gulp-sourcemaps");
-const rename = require("gulp-rename");
-const notify = require("gulp-notify");
-const rsync = require("gulp-rsync");
+import gulp from "gulp";
+const { src, dest, parallel, series, watch } = gulp;
+import browserSync from "browser-sync";
+import webpack from "webpack";
+import webpackStream from "webpack-stream";
+import TerserPlugin from "terser-webpack-plugin";
+import sassDark from "sass";
+import sassGulp from "gulp-sass";
+import sassglob from "gulp-sass-glob";
+import sourcemaps from "gulp-sourcemaps";
+const sass = sassGulp(sassDark);
+import plumber from "gulp-plumber";
+import notify from "gulp-notify";
+import postCss from "gulp-postcss";
+import cssnano from "cssnano";
+import autoprefixer from "autoprefixer";
+import rename from "gulp-rename";
+import imagemin from "gulp-imagemin";
+import newer from "gulp-newer";
+import rsync from "gulp-rsync";
 
 function browsersync() {
   browserSync.init({
@@ -77,7 +90,7 @@ function browsersync() {
   });
 }
 
-function scripts() {
+function js() {
   return src(paths.scripts.src)
     .pipe(
       plumber({
@@ -91,26 +104,98 @@ function scripts() {
       })
     )
     .pipe(
-      webpack({
-        mode: "production",
-        performance: {
-          hints: false,
-        },
-        module: {
-          rules: [
-            {
-              test: /\.(js)$/,
-              exclude: /(node_modules)/,
-              loader: "babel-loader",
-              query: {
-                presets: ["@babel/env"],
-                plugins: ["babel-plugin-root-import"],
-              },
-            },
+      webpackStream(
+        {
+          mode: "production",
+          performance: { hints: false },
+          plugins: [
+            new webpack.ProvidePlugin({
+              $: "jquery",
+              jQuery: "jquery",
+              "window.jQuery": "jquery",
+            }), // jQuery (npm i jquery)
           ],
+          module: {
+            rules: [
+              {
+                test: /\.(js)$/,
+                exclude: /(node_modules)/,
+                use: {
+                  loader: "babel-loader",
+                  options: {
+                    presets: ["@babel/preset-env"],
+                    plugins: ["babel-plugin-root-import"],
+                  },
+                },
+              },
+            ],
+          },
+          optimization: {
+            minimize: false,
+            minimizer: [
+              new TerserPlugin({
+                terserOptions: { format: { comments: true } },
+                extractComments: false,
+              }),
+            ],
+          },
         },
-      })
+        webpack
+      )
     )
+    .on("error", function handleError() {
+      this.emit("end");
+    })
+    .pipe(rename(paths.jsOutputName))
+    .pipe(dest(paths.scripts.dest))
+    .pipe(browserSync.stream());
+}
+
+function scripts() {
+  return src(paths.scripts.src)
+    .pipe(
+      webpackStream(
+        {
+          mode: "production",
+          performance: { hints: false },
+          plugins: [
+            new webpack.ProvidePlugin({
+              $: "jquery",
+              jQuery: "jquery",
+              "window.jQuery": "jquery",
+            }), // jQuery (npm i jquery)
+          ],
+          module: {
+            rules: [
+              {
+                test: /\.m?js$/,
+                exclude: /(node_modules)/,
+                use: {
+                  loader: "babel-loader",
+                  options: {
+                    presets: ["@babel/preset-env"],
+                    plugins: ["babel-plugin-root-import"],
+                  },
+                },
+              },
+            ],
+          },
+          optimization: {
+            minimize: true,
+            minimizer: [
+              new TerserPlugin({
+                terserOptions: { format: { comments: false } },
+                extractComments: false,
+              }),
+            ],
+          },
+        },
+        webpack
+      )
+    )
+    .on("error", function handleError() {
+      this.emit("end");
+    })
     .pipe(rename(paths.jsOutputName))
     .pipe(dest(paths.scripts.dest))
     .pipe(browserSync.stream());
@@ -131,9 +216,14 @@ function css() {
       })
     )
     .pipe(sassglob())
-    .pipe(sass.sync())
+    .pipe(sass({ "include css": true }))
     .pipe(
-      cleancss({ level: { 1: { specialComments: 0 } }, format: "beautify" })
+      postCss([
+        autoprefixer({ grid: "autoplace" }),
+        cssnano({
+          preset: ["default", { discardComments: { removeAll: true } }],
+        }),
+      ])
     )
     .pipe(rename(paths.cssOutputName))
     .pipe(sourcemaps.write("."))
@@ -144,17 +234,26 @@ function css() {
 function styles() {
   return src(paths.styles.src)
     .pipe(sassglob())
-    .pipe(sass.sync().on("error", sass.logError))
+    .pipe(sass({ "include css": true }))
     .pipe(
-      autoprefixer({ overrideBrowserslist: ["last 10 versions"], grid: true })
-    )
-    .pipe(
-      cleancss({
-        level: { 1: { specialComments: 0 } } /* format: 'beautify' */,
-      })
+      postCss([
+        autoprefixer({ grid: "autoplace" }),
+        cssnano({
+          preset: ["default", { discardComments: { removeAll: true } }],
+        }),
+      ])
     )
     .pipe(rename(paths.cssOutputName))
     .pipe(dest(paths.styles.dest))
+    .pipe(browserSync.stream());
+}
+
+function images() {
+  return src(paths.images.src)
+    .pipe(plumber())
+    .pipe(newer(paths.images.dest))
+    .pipe(imagemin({ verbose: "true" }))
+    .pipe(dest(paths.images.dest))
     .pipe(browserSync.stream());
 }
 
@@ -183,7 +282,7 @@ function startwatch() {
       `!themes/${theme}/assets/js/*.min.js`,
     ],
     { usePolling: true },
-    scripts
+    js
   );
   watch(
     [`themes/${theme}/**/*.{${fileswatch}}`, `plugins/**/*.{${fileswatch}}`],
@@ -191,9 +290,6 @@ function startwatch() {
   ).on("change", browserSync.reload);
 }
 
-exports.css = css;
-exports.styles = styles;
-exports.scripts = scripts;
-exports.deploy = deploy;
-exports.assets = parallel(scripts, styles);
-exports.default = series(scripts, css, parallel(browsersync, startwatch));
+export { css, js, scripts, styles, images, deploy };
+export let build = parallel(scripts, styles);
+export default series(js, css, parallel(browsersync, startwatch));

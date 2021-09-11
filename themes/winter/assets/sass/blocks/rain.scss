@@ -1,4 +1,5 @@
 // rain.scss
+// Blogs styles
 
 h1,
 h2,
@@ -19,15 +20,6 @@ a {
 
 .textcolor {
   color: $textcolor;
-}
-
-.navbar-autohide {
-  min-height: 4rem;
-  transition: transform .5s;
-}
-
-.navbar-autohide.is-hidden {
-  transform: translateY(-4rem);
 }
 
 hr {
@@ -93,7 +85,7 @@ input[type="submit"] {
   min-height: 35vh;
 }
 
-.test a~a {
+.test a ~ a {
   padding-left: 30px;
 }
 

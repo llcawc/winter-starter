@@ -24,11 +24,30 @@ $grid-gutter-width: 1.5rem; //24px
 $gutter: $grid-gutter-width;
 
 // Grig
-$grid-breakpoints: (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px, xxl: 1400px);
-$container-max-widths: (sm: 540px, md: 720px, lg: 960px, xl: 1140px, xxl: 1320px);
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px,
+);
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1320px,
+);
 
 // Ratio
-$aspect-ratios: ("1x1": 100%, "4x3": calc(3 / 4 * 100%), "16x9": calc(9 / 16 * 100%), "16x10": calc(10 / 16 * 100%), "21x9": calc(9 / 21 * 100%));
+$aspect-ratios: (
+  "1x1": 100%,
+  "4x3": calc(3 / 4 * 100%),
+  "16x9": calc(9 / 16 * 100%),
+  "16x10": calc(10 / 16 * 100%),
+  "21x9": calc(9 / 21 * 100%),
+);
 
 :root {
   --bs-body-bg: #fff;
@@ -53,7 +72,7 @@ $aspect-ratios: ("1x1": 100%, "4x3": calc(3 / 4 * 100%), "16x9": calc(9 / 16 * 1
 // @import "node_modules/bootstrap/scss/forms";
 @import "node_modules/bootstrap/scss/buttons";
 @import "node_modules/bootstrap/scss/transitions";
-// @import "node_modules/bootstrap/scss/dropdown";
+@import "node_modules/bootstrap/scss/dropdown";
 // @import "node_modules/bootstrap/scss/button-group";
 @import "node_modules/bootstrap/scss/nav";
 @import "node_modules/bootstrap/scss/navbar";
@@ -65,7 +84,7 @@ $aspect-ratios: ("1x1": 100%, "4x3": calc(3 / 4 * 100%), "16x9": calc(9 / 16 * 1
 // @import "node_modules/bootstrap/scss/alert";
 // @import "node_modules/bootstrap/scss/progress";
 @import "node_modules/bootstrap/scss/list-group";
-// @import "node_modules/bootstrap/scss/close"
+@import "node_modules/bootstrap/scss/close";
 // @import "node_modules/bootstrap/scss/toasts";
 // @import "node_modules/bootstrap/scss/modal";
 // @import "node_modules/bootstrap/scss/tooltip";
@@ -74,7 +93,6 @@ $aspect-ratios: ("1x1": 100%, "4x3": calc(3 / 4 * 100%), "16x9": calc(9 / 16 * 1
 // @import "node_modules/bootstrap/scss/spinners";
 // @import "node_modules/bootstrap/scss/offcanvas";
 // @import "node_modules/bootstrap/scss/placeholders";
-
 // Helpers
 @import "node_modules/bootstrap/scss/helpers";
 
