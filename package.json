@@ -4,12 +4,13 @@
   "date": "2021.10.14",
   "author": "pasmurno by llcawc",
   "homepage": "https://github.com/llcawc",
-  "description": "October CMS mockup starter template by pasmurno",
+  "description": "Winter CMS mockup starter template by pasmurno",
   "license": "MIT",
   "keywords": [
     "starter",
     "template",
-    "OctoberCMS"
+    "Winter CMS",
+    "October CMS"
   ],
   "repository": {
     "type": "git",
