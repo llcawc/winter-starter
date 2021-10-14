@@ -28,13 +28,13 @@ function browserSync() {
 
 function watchDev() {
   watch(`themes/${theme}/app/img/**/*.{jpg,png,svg}`, { usePolling: true }, images)
-  watch(`themes/${theme}/app/js/**/*.{js,mjs,cjs}`, { usePolling: true }, series(jsDev, jsLibDev))
+  watch(`themes/${theme}/app/js/**/*.{js,mjs,cjs}`, { usePolling: true }, parallel(jsDev, jsLibDev))
   watch(`themes/${theme}/app/scss/**/*.{scss,sass,css}`, { usePolling: true }, cssDev)
   watch(`themes/${theme}/**/*.{${fileswatch}}`, { usePolling: true }).on('change', browsersync.reload)
 }
 
 export { clean, assetscopy, jsDev, jsBuild, cssDev, cssBuild, images, deploy }
-export let build = series(clean, assetscopy, images, cssBuild, jsBuild, jsLibBuild)
+export let build = series(clean, assetscopy, images, cssBuild, parallel(jsBuild, jsLibBuild))
 export let serve = parallel(browserSync, watchDev)
-export let assets = series(assetscopy, images, cssDev, jsDev, jsLibDev)
+export let assets = series(assetscopy, images, cssDev, parallel(jsDev, jsLibDev))
 export let dev = series(clean, assets, serve)

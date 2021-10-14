@@ -91,10 +91,10 @@ img {
   }
 }
 
-.blanc {
+.blank {
   height: 100vh;
-  margin-top: -4rem;
-  color: $dark;
+  background-color: $dark;
+  margin-top: -4rem; //64px;
 }
 
 #popup {
