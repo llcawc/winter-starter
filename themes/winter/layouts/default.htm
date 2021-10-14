@@ -23,7 +23,9 @@ description = "Default layout"
   {% partial 'footer' %}
 
   <!-- Scripts -->
+  <script src="{{ 'assets/js/lib.min.js'|theme }}"></script>
   <script src="{{ 'assets/js/app.min.js'|theme }}"></script>
+  {% framework extras %}
   {% scripts %}
 
 </body>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Сен 11 2021 г., 21:37
+-- Время создания: Окт 14 2021 г., 20:36
 -- Версия сервера: 5.7.33
 -- Версия PHP: 7.4.21
 
@@ -46,7 +46,10 @@ INSERT INTO `backend_access_log` (`id`, `user_id`, `ip_address`, `created_at`, `
 (4, 1, '127.0.0.1', '2021-08-24 05:09:37', '2021-08-24 05:09:37'),
 (5, 1, '127.0.0.1', '2021-08-24 13:18:53', '2021-08-24 13:18:53'),
 (6, 1, '127.0.0.1', '2021-09-08 14:48:17', '2021-09-08 14:48:17'),
-(7, 1, '127.0.0.1', '2021-09-08 17:52:58', '2021-09-08 17:52:58');
+(7, 1, '127.0.0.1', '2021-09-08 17:52:58', '2021-09-08 17:52:58'),
+(8, 1, '127.0.0.1', '2021-09-30 18:07:32', '2021-09-30 18:07:32'),
+(9, 1, '127.0.0.1', '2021-10-14 10:33:30', '2021-10-14 10:33:30'),
+(10, 1, '127.0.0.1', '2021-10-14 11:11:53', '2021-10-14 11:11:53');
 
 -- --------------------------------------------------------
 
@@ -80,7 +83,7 @@ CREATE TABLE `backend_users` (
 --
 
 INSERT INTO `backend_users` (`id`, `first_name`, `last_name`, `login`, `email`, `password`, `activation_code`, `persist_code`, `reset_password_code`, `permissions`, `is_activated`, `role_id`, `activated_at`, `last_login`, `created_at`, `updated_at`, `deleted_at`, `is_superuser`) VALUES
-(1, 'Yuri', 'Rastvorov', 'master', 'rastvorov@gmail.com', '$2y$10$UrlyUJ6sHlNsXwzTejNWPe9D9Di9.5I6mzphDHXj.BNLfQnvINRuK', NULL, '$2y$10$cYT9Yg/E39mCik60qF/r.uo1fvpb.7aHoIEvaorM6Y0p3ljBbj2z6', NULL, '', 1, 2, NULL, '2021-09-08 17:52:58', '2021-06-23 10:10:42', '2021-09-08 17:52:58', NULL, 1);
+(1, 'Yuri', 'Rastvorov', 'master', 'rastvorov@gmail.com', '$2y$10$UrlyUJ6sHlNsXwzTejNWPe9D9Di9.5I6mzphDHXj.BNLfQnvINRuK', NULL, '$2y$10$cYT9Yg/E39mCik60qF/r.uo1fvpb.7aHoIEvaorM6Y0p3ljBbj2z6', NULL, '', 1, 2, NULL, '2021-10-14 11:11:53', '2021-06-23 10:10:42', '2021-10-14 11:11:53', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -430,16 +433,16 @@ CREATE TABLE `system_files` (
 --
 
 INSERT INTO `system_files` (`id`, `disk_name`, `file_name`, `file_size`, `content_type`, `title`, `description`, `field`, `attachment_id`, `attachment_type`, `is_public`, `sort_order`, `created_at`, `updated_at`) VALUES
-(2, '61250b6a0f2e1433412989.jpg', 'b2.jpg', 295638, 'image/jpeg', 'Townhouse \"Silverine\"', 'data-pswp-width=\"1920\" data-pswp-height=\"1200\"', 'featured_images', '7', 'Winter\\Blog\\Models\\Post', 1, 2, '2021-08-24 12:08:26', '2021-09-11 15:18:32'),
-(3, '61250b6a655e2596241697.jpg', 'b3.jpg', 310629, 'image/jpeg', 'Residential Complex \"Нousewarming', 'data-pswp-width=\"1920\" data-pswp-height=\"1200\"', 'featured_images', '7', 'Winter\\Blog\\Models\\Post', 1, 3, '2021-08-24 12:08:26', '2021-09-11 15:18:49'),
-(4, '61250b780170d220135179.jpg', 'b1.jpg', 367248, 'image/jpeg', 'Cottage 250 m2', 'data-pswp-width=\"1920\" data-pswp-height=\"1200\"', 'featured_images', '7', 'Winter\\Blog\\Models\\Post', 1, 1, '2021-08-24 12:08:40', '2021-09-11 15:18:17'),
-(5, '61250fa0ba3bb082872914.jpg', 'пямятка.jpg', 126006, 'image/jpeg', NULL, NULL, 'logo', '2', 'Backend\\Models\\BrandSetting', 1, 5, '2021-08-24 12:26:24', '2021-08-24 12:26:29'),
-(6, '613cf48d8130b889997419.jpg', 'b2.jpg', 295638, 'image/jpeg', 'Townhouse \"Silverine\"', 'data-pswp-width=\"1920\" data-pswp-height=\"1200\"', 'featured_images', '6', 'Winter\\Blog\\Models\\Post', 1, 6, '2021-09-11 15:25:17', '2021-09-11 15:26:47'),
-(7, '613cf518e5af6093750937.jpg', 'b3.jpg', 310629, 'image/jpeg', 'Residential Complex \"Нousewarming\"', 'data-pswp-width=\"1920\" data-pswp-height=\"1200\"', 'featured_images', '5', 'Winter\\Blog\\Models\\Post', 1, 7, '2021-09-11 15:27:36', '2021-09-11 15:28:06'),
-(8, '613cf54400420040667867.jpg', 'b4.jpg', 443935, 'image/jpeg', 'Residential Complex \"Soul lift\"', 'data-pswp-width=\"1920\" data-pswp-height=\"1200\"', 'featured_images', '4', 'Winter\\Blog\\Models\\Post', 1, 8, '2021-09-11 15:28:20', '2021-09-11 15:31:12'),
-(9, '613cf55890a88671492346.jpg', 'b5.jpg', 294915, 'image/jpeg', 'Typical American Single Family Cottage', 'data-pswp-width=\"1920\" data-pswp-height=\"1200\"', 'featured_images', '3', 'Winter\\Blog\\Models\\Post', 1, 9, '2021-09-11 15:28:40', '2021-09-11 15:30:40'),
-(10, '613cf578d29cf915352395.jpg', 'b6.jpg', 322422, 'image/jpeg', 'European house 350 m2', 'data-pswp-width=\"1920\" data-pswp-height=\"1200\"', 'featured_images', '2', 'Winter\\Blog\\Models\\Post', 1, 10, '2021-09-11 15:29:12', '2021-09-11 15:30:09'),
-(11, '613cf58a1c238683010583.jpg', 'b7.jpg', 414160, 'image/jpeg', 'Modern Cottage', 'data-pswp-width=\"1920\" data-pswp-height=\"1200\"', 'featured_images', '1', 'Winter\\Blog\\Models\\Post', 1, 11, '2021-09-11 15:29:30', '2021-09-11 15:29:49');
+(12, '6156cd4a72278438565571.jpg', 'пямятка.jpg', 126006, 'image/jpeg', NULL, NULL, 'logo', '2', 'Backend\\Models\\BrandSetting', 1, 12, '2021-10-01 05:56:42', '2021-10-01 05:57:32'),
+(13, '616853e0caa61657127247.jpg', 'b7.jpg', 742750, 'image/jpeg', 'Modern Cottage', 'data-pswp-width=\"1920\" data-pswp-height=\"1200\"', 'featured_images', '1', 'Winter\\Blog\\Models\\Post', 1, 13, '2021-10-14 12:59:28', '2021-10-14 13:00:14'),
+(14, '6168545db475f654068050.jpg', 'b6.jpg', 593643, 'image/jpeg', 'European house 350 m2', 'data-pswp-width=\"1920\" data-pswp-height=\"1200\"', 'featured_images', '2', 'Winter\\Blog\\Models\\Post', 1, 14, '2021-10-14 13:01:33', '2021-10-14 13:01:58'),
+(15, '6168548f88e1a018692326.jpg', 'b5.jpg', 552828, 'image/jpeg', 'Typical American Single Family Cottage', 'data-pswp-width=\"1920\" data-pswp-height=\"1200\"', 'featured_images', '3', 'Winter\\Blog\\Models\\Post', 1, 15, '2021-10-14 13:02:23', '2021-10-14 13:03:05'),
+(16, '616854d65ac6b491271712.jpg', 'b4.jpg', 815832, 'image/jpeg', 'Residential Complex \"Soul lift\"', 'data-pswp-width=\"1920\" data-pswp-height=\"1200\"', 'featured_images', '4', 'Winter\\Blog\\Models\\Post', 1, 16, '2021-10-14 13:03:34', '2021-10-14 13:04:22'),
+(17, '6168551e7e14d887548953.jpg', 'b3.jpg', 621767, 'image/jpeg', 'Residential Complex \"Нousewarming\"', 'data-pswp-width=\"1920\" data-pswp-height=\"1200\"', 'featured_images', '5', 'Winter\\Blog\\Models\\Post', 1, 17, '2021-10-14 13:04:46', '2021-10-14 13:05:19'),
+(18, '6168554f698ec353385328.jpg', 'b2.jpg', 547575, 'image/jpeg', 'Townhouse \"Silverine\"', 'data-pswp-width=\"1920\" data-pswp-height=\"1200\"', 'featured_images', '6', 'Winter\\Blog\\Models\\Post', 1, 18, '2021-10-14 13:05:35', '2021-10-14 13:05:58'),
+(19, '6168557cbd0f2116446983.jpg', 'b1.jpg', 687637, 'image/jpeg', 'Cottage 250 m2', 'data-pswp-width=\"1920\" data-pswp-height=\"1200\"', 'featured_images', '7', 'Winter\\Blog\\Models\\Post', 1, 19, '2021-10-14 13:06:20', '2021-10-14 13:07:34'),
+(20, '6168557ccc62e922240910.jpg', 'b2.jpg', 547575, 'image/jpeg', 'Townhouse \"Silverine\"', 'data-pswp-width=\"1920\" data-pswp-height=\"1200\"', 'featured_images', '7', 'Winter\\Blog\\Models\\Post', 1, 20, '2021-10-14 13:06:20', '2021-10-14 13:07:34'),
+(21, '6168557d3b0b2413906302.jpg', 'b3.jpg', 621767, 'image/jpeg', 'Residential Complex \"Нousewarming', 'data-pswp-width=\"1920\" data-pswp-height=\"1200\"', 'featured_images', '7', 'Winter\\Blog\\Models\\Post', 1, 21, '2021-10-14 13:06:21', '2021-10-14 13:07:34');
 
 -- --------------------------------------------------------
 
@@ -524,7 +527,7 @@ CREATE TABLE `system_parameters` (
 
 INSERT INTO `system_parameters` (`id`, `namespace`, `group`, `item`, `value`) VALUES
 (1, 'system', 'update', 'count', '0'),
-(2, 'system', 'update', 'retry', '1631470560'),
+(2, 'system', 'update', 'retry', '1634304813'),
 (3, 'cms', 'theme', 'active', '\"winter\"');
 
 -- --------------------------------------------------------
@@ -811,7 +814,21 @@ CREATE TABLE `system_request_logs` (
 --
 
 INSERT INTO `system_request_logs` (`id`, `status_code`, `url`, `referer`, `count`, `created_at`, `updated_at`) VALUES
-(1, 404, 'http://winter/favicon.ico', '[\"http:\\/\\/winter\\/storage\\/app\\/uploads\\/public\\/612\\/50b\\/780\\/61250b780170d220135179.jpg\"]', 2, '2021-09-11 15:14:47', '2021-09-11 15:19:10');
+(1, 404, 'http://winter-starter/storage/app/uploads/public/612/50b/6a0/61250b6a0f2e1433412989.jpg', '[\"http:\\/\\/winter-starter\\/blog\\/post\\/subektivnyj-genij-metodologiya-i-osobennosti\"]', 6, '2021-10-14 10:36:39', '2021-10-14 10:54:53'),
+(2, 404, 'http://winter-starter/storage/app/uploads/public/612/50b/6a6/61250b6a655e2596241697.jpg', '[\"http:\\/\\/winter-starter\\/blog\\/post\\/subektivnyj-genij-metodologiya-i-osobennosti\"]', 6, '2021-10-14 10:36:39', '2021-10-14 10:54:53'),
+(3, 404, 'http://winter-starter/storage/app/uploads/public/612/50b/780/61250b780170d220135179.jpg', '[\"http:\\/\\/winter-starter\\/blog\\/post\\/subektivnyj-genij-metodologiya-i-osobennosti\"]', 5, '2021-10-14 10:36:39', '2021-10-14 10:54:53'),
+(4, 404, 'http://winter-starter/favicon.ico', '[\"http:\\/\\/winter-starter\\/nobody\"]', 2, '2021-10-14 10:51:10', '2021-10-14 13:12:53'),
+(5, 404, 'http://winter-starter/404', '[\"http:\\/\\/winter-starter\\/backend\\/cms\"]', 1, '2021-10-14 10:52:55', '2021-10-14 10:52:55'),
+(6, 404, 'http://winter-starter/assets/images/thumb/b4-640x400.jpg', '[\"http:\\/\\/localhost:3000\\/\"]', 6, '2021-10-14 11:28:03', '2021-10-14 11:32:14'),
+(7, 404, 'http://winter-starter/assets/images/thumb/b7-640x400.jpg', '[\"http:\\/\\/localhost:3000\\/\"]', 6, '2021-10-14 11:28:03', '2021-10-14 11:32:14'),
+(8, 404, 'http://winter-starter/assets/images/thumb/b2-640x400.jpg', '[\"http:\\/\\/localhost:3000\\/\"]', 6, '2021-10-14 11:28:03', '2021-10-14 11:32:14'),
+(9, 404, 'http://winter-starter/assets/images/thumb/b6-640x400.jpg', '[\"http:\\/\\/localhost:3000\\/\"]', 6, '2021-10-14 11:28:03', '2021-10-14 11:32:14'),
+(10, 404, 'http://winter-starter/assets/images/thumb/b1-640x400.jpg', '[\"http:\\/\\/localhost:3000\\/\"]', 6, '2021-10-14 11:28:03', '2021-10-14 11:32:14'),
+(11, 404, 'http://winter-starter/assets/images/thumb/b3-640x400.jpg', '[\"http:\\/\\/localhost:3000\\/\"]', 6, '2021-10-14 11:28:03', '2021-10-14 11:32:14'),
+(12, 404, 'http://winter-starter/assets/images/thumb/b5-640x400.jpg', '[\"http:\\/\\/localhost:3000\\/\"]', 6, '2021-10-14 11:28:03', '2021-10-14 11:32:14'),
+(13, 404, 'http://winter-starter/assets/images/b3.jpg', '[\"http:\\/\\/localhost:3000\\/\"]', 2, '2021-10-14 11:35:50', '2021-10-14 11:36:01'),
+(14, 404, 'http://winter-starter/themes/winter/assets/css/main.min.css.map', NULL, 3, '2021-10-14 11:55:03', '2021-10-14 11:55:09'),
+(15, 404, 'http://winter-starter/themes/winter/assets/fonts/bootstrap-icons.woff', '[\"http:\\/\\/localhost:3000\\/themes\\/winter\\/assets\\/css\\/main.min.css\"]', 1, '2021-10-14 14:26:07', '2021-10-14 14:26:07');
 
 -- --------------------------------------------------------
 
@@ -850,7 +867,7 @@ CREATE TABLE `system_settings` (
 
 INSERT INTO `system_settings` (`id`, `item`, `value`) VALUES
 (1, 'system_log_settings', '{\"log_events\":\"1\",\"log_requests\":\"1\",\"log_theme\":\"0\"}'),
-(2, 'backend_brand_settings', '{\"app_name\":\"Winter CMS\",\"app_tagline\":\"\\u0412\\u043e\\u0437\\u0432\\u0440\\u0430\\u0449\\u0435\\u043d\\u0438\\u0435 \\u043a \\u0438\\u0441\\u0442\\u043e\\u043a\\u0430\\u043c\",\"primary_color\":\"#34495e\",\"secondary_color\":\"#e67e22\",\"accent_color\":\"#3498db\",\"menu_mode\":\"inline\",\"custom_css\":\"\"}');
+(2, 'backend_brand_settings', '{\"app_name\":\"Winter CMS\",\"app_tagline\":\"\\u0412\\u043e\\u0437\\u0432\\u0440\\u0430\\u0449\\u0435\\u043d\\u0438\\u0435 \\u043a \\u0438\\u0441\\u0442\\u043e\\u043a\\u0430\\u043c\",\"primary_color\":\"#34495e\",\"secondary_color\":\"#e67e22\",\"accent_color\":\"#3498db\",\"menu_mode\":\"inline\",\"custom_css\":\"a:focus {outline: none;}\\r\\n.ace_editor#MarkdownEditor-formContentHtml-content_html-code {min-height: 348px;}\\r\\n.ace_editor.ace_dark {font-size:14px; line-height:1.4!important; font-family:\'Menlo\', Consolas, monospace !important}\\r\\n.ace_editor.ace_dark .ace_meta.ace_tag{color:#808080!important} \\/* < \\u043e\\u0431\\u0435\\u0440\\u0442\\u043a\\u0430 \\u0442\\u0435\\u0433\\u043e\\u0432 > *\\/\\r\\n.ace_editor.ace_dark .ace_operator {color:#808080!important} \\/* < \\u043e\\u043f\\u0435\\u0440\\u0430\\u0442\\u043e\\u0440 > *\\/\\r\\n.ace_editor.ace_dark .ace_meta.ace_tag.ace_tag-name{color:#569CD6!important} \\/* \\u0442\\u0435\\u0433\\u0438 *\\/\\r\\n.ace_editor.ace_dark .ace_string{color:#CE9178!important} \\/* \\u0441\\u0435\\u043b\\u0435\\u043a\\u0442\\u043e\\u0440\\u044b *\\/\\r\\n.ace_editor.ace_dark .ace_entity.ace_other.ace_attribute-name{color:#9CDCFE!important} \\/* \\u0430\\u0442\\u0440\\u0438\\u0431\\u0443\\u0442\\u044b *\\/\\r\\n.ace_editor.ace_dark .ace_variable.ace_other.ace_readwrite{color:#8299B3!important} \\/* \\u043a\\u0430\\u0432\\u044b\\u0447\\u043a\\u0438 \\u0444\\u0438\\u0433\\u0443\\u0440\\u043d\\u044b\\u0435 *\\/\\r\\n.ace_editor.ace_dark .ace_gutter{color:#666E79!important}\\r\\n.ace_editor.ace_dark .ace_text {color:#BDBDBD!important} \\/* \\u0442\\u0435\\u043a\\u0441\\u0442 *\\/\\r\\n.ace_editor.ace_dark .ace_identifier {color:#DCDCAA!important} \\/* \\u0442\\u0435\\u0433\\u0438 \\u0442\\u0432\\u0438\\u0433 \\u0440\\u0430\\u0437\\u043c\\u0435\\u0442\\u043a\\u0438*\\/\\r\\n.ace_editor.ace_dark .ace_comment {color:#6A9955!important} \\/* \\u043a\\u043e\\u043c\\u043c\\u0435\\u043d\\u0442\\u0430\\u0440\\u0438\\u0438 *\\/\\r\\n.ace_editor.ace_dark .ace_active-line,.ace_gutter-active-line{background-color:#282828!important} \\/* \\u043f\\u043e\\u0434\\u0441\\u0432\\u0435\\u0442\\u043a\\u0430 \\u0441\\u0442\\u0440\\u043e\\u043a\\u0438 *\\/\\r\\n.ace_editor.ace_dark .ace_scroller,.ace_gutter {background-color:#1E1E1E!important} \\/* \\u0444\\u043e\\u043d *\\/\\r\\n\\r\\n.field-mediafinder.style-image-single .find-object .icon-container, .field-mediafinder.style-image-single .find-object .info, .field-mediafinder.style-image-single .find-object .icon-container img {max-width: 200px}\\r\\nnav#layout-mainmenu.navbar-mode-inline ul.mainmenu-nav li a .nav-icon > * {max-width: 24px;font-size: 24px}\"}');
 
 -- --------------------------------------------------------
 
@@ -868,13 +885,13 @@ CREATE TABLE `vdomah_blogviews_views` (
 --
 
 INSERT INTO `vdomah_blogviews_views` (`views`, `post_id`) VALUES
-(2, 1),
+(3, 1),
 (2, 2),
-(2, 3),
+(3, 3),
 (3, 4),
-(4, 5),
-(3, 6),
-(4, 7);
+(6, 5),
+(7, 6),
+(10, 7);
 
 -- --------------------------------------------------------
 
@@ -1335,7 +1352,7 @@ ALTER TABLE `winter_translate_messages`
 -- AUTO_INCREMENT для таблицы `backend_access_log`
 --
 ALTER TABLE `backend_access_log`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT для таблицы `backend_users`
@@ -1389,7 +1406,7 @@ ALTER TABLE `cms_theme_templates`
 -- AUTO_INCREMENT для таблицы `deferred_bindings`
 --
 ALTER TABLE `deferred_bindings`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT для таблицы `failed_jobs`
@@ -1419,7 +1436,7 @@ ALTER TABLE `system_event_logs`
 -- AUTO_INCREMENT для таблицы `system_files`
 --
 ALTER TABLE `system_files`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT для таблицы `system_mail_layouts`
@@ -1461,7 +1478,7 @@ ALTER TABLE `system_plugin_versions`
 -- AUTO_INCREMENT для таблицы `system_request_logs`
 --
 ALTER TABLE `system_request_logs`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT для таблицы `system_revisions`

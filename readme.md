@@ -1,10 +1,10 @@
 # Starter Template WINSTART
 
-*Revision 1.1.0 from 11.09.2021*
+_Revision 1.2.0 from 2021.10.14_
 
->WinterCMS Starter Template by pasmurno<br>
-Based on WinterCMS. SASS/SCSS. PostCSS. Gulp. Webpack and module JS. Bootstrap. Bootstrap-Icons.<br>
-[Winter](https://wintercms.com) is a Content Management System (CMS) and web platform whose sole purpose is to make your development workflow simple again.
+> WinterCMS Starter Template by pasmurno<br>
+> Based on WinterCMS. SASS/SCSS. PostCSS. Gulp. Rollup and module JS. Bootstrap. Bootstrap-Icons.<br> > [Winter](https://wintercms.com) is a Content Management System (CMS) and web platform whose sole purpose is to make your development workflow simple again.
 
 ---
+
 &copy;&nbsp;2021 [llcawc](https://github.com/llcawc), all rights reserved. Made&nbsp;with&nbsp;<span style="color: #e60f0a;">&#10084;</span>&nbsp;for&nbsp;the&nbsp;best&nbsp;architecture.
