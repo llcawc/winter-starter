@@ -1,0 +1,107 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+
+    published:
+        type: switch
+        span: storm
+        cssClass: col-xs-12 col-md-1
+
+    title:
+        label: webvpf.simpledocs::lang.fields.title
+        span: storm
+        cssClass: col-xs-12 col-sm-6 col-md-6
+        type: text
+        placeholder: webvpf.simpledocs::lang.fields.title_placeholder
+
+    slug:
+        label: Slug
+        type: text
+        span: storm
+        cssClass: col-xs-12 col-sm-6 col-md-5
+        preset:
+            field: title
+            type: slug
+        placeholder: webvpf.simpledocs::lang.fields.slug_placeholder
+
+    toolbar:
+        type: partial
+        path: item_toolbar
+        cssClass: collapse-visible
+
+secondaryTabs:
+    stretch: true
+    fields:
+        content:
+            type: markdown
+            size: giant
+            mode: split
+            stretch: true
+            tab: webvpf.simpledocs::lang.fields.tab_content
+
+        meta_title:
+            label: Meta Title
+            type: text
+            span: full
+            tab: Meta
+
+        meta_desc:
+            label: Meta Description
+            type: textarea
+            size: small
+            span: auto
+            tab: Meta
+
+        meta_key:
+            label: Meta Keywords
+            type: textarea
+            size: small
+            span: auto
+            tab: Meta
+
+        meta_img:
+            label: webvpf.simpledocs::lang.fields.meta_img
+            type: mediafinder
+            mode: image
+            imageWidth: '150'
+            imageHeight: '150'
+            span: auto
+            tab: Meta
+
+        css_files:
+            type: repeater
+            prompt: webvpf.simpledocs::lang.fields.repiter_prompt_css_files
+            style: collapsed
+            form:
+                fields:
+                    url:
+                        label: webvpf.simpledocs::lang.fields.label_add_url_css_files
+                        type: text
+            tab: CSS
+
+        css:
+            type: codeeditor
+            span: full
+            size: giant
+            language: css
+            tab: CSS
+
+        js_files:
+            type: repeater
+            prompt: webvpf.simpledocs::lang.fields.repiter_prompt_js_files
+            style: collapsed
+            form:
+                fields:
+                    url:
+                        label: webvpf.simpledocs::lang.fields.label_add_url_js_files
+                        type: text
+            tab: JavaScript
+
+        js:
+            type: codeeditor
+            span: full
+            size: giant
+            language: javascript
+            tab: JavaScript

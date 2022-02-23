@@ -1,0 +1,11 @@
+title = "Страница документации"
+url = "/docs/:slug"
+layout = "docs"
+is_hidden = 1
+
+[DocsItem]
+slug = "{{ :slug }}"
+stek = "wn"
+theme = "default"
+==
+{% component 'DocsItem' %}

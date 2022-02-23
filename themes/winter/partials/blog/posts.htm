@@ -23,12 +23,12 @@
                         post.published_at|date(", j ") }}{{
                         mnths[post.published_at|date("n")] }}{{
                         post.published_at|date(" Y") }}</span>
-                    
+
                       <!--   {{ post.published_at|date('M d, Y') }} -->
                 </p>
 
                 {% if post.excerpt %}
-                
+
                   <div class="media-left float-start me-3">
                     <a href="{{ post.url }}">
                       {% if post.featured_images.count > 0 %}
@@ -38,12 +38,12 @@
                       {% endif %}
                     </a>
                     </div>
-                
+
                     <p class="excerpt">{{ post.excerpt }}</p>
-                    
+
                 {% else %}
                     <div class="content">{{ post.content_html|raw }}</div>
-                    
+
                 {% endif %}
             </div>
         </div>
@@ -55,19 +55,19 @@
 </div>
 
 {% if posts.lastPage > 1 %}
-    <ul class="pagination">
+    <ul class="pagination justify-content-center">
         {% if posts.currentPage > 1 %}
-            <li><a href="{{ this.page.baseFileName|page({ (pageParam): (posts.currentPage-1) }) }}">&larr; Prev</a></li>
+            <li class="page-item"><a class="page-link" href="{{ this.page.baseFileName|page({ (pageParam): (posts.currentPage-1) }) }}">&larr; Prev</a></li>
         {% endif %}
 
         {% for page in 1..posts.lastPage %}
-            <li class="{{ posts.currentPage == page ? 'active' : null }}">
-                <a href="{{ this.page.baseFileName|page({ (pageParam): page }) }}">{{ page }}</a>
+            <li class="page-item {{ posts.currentPage == page ? 'active' : null }}">
+                <a class="page-link" href="{{ this.page.baseFileName|page({ (pageParam): page }) }}">{{ page }}</a>
             </li>
         {% endfor %}
 
         {% if posts.lastPage > posts.currentPage %}
-            <li><a href="{{ this.page.baseFileName|page({ (pageParam): (posts.currentPage+1) }) }}">Next &rarr;</a></li>
+            <li class="page-item"><a class="page-link" href="{{ this.page.baseFileName|page({ (pageParam): (posts.currentPage+1) }) }}">Next &rarr;</a></li>
         {% endif %}
     </ul>
 {% endif %}

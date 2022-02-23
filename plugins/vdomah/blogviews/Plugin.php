@@ -5,8 +5,8 @@ use Cookie;
 use Event;
 use Session;
 use System\Classes\PluginBase;
-use Winter\Blog\Components\Post as PostComponent;
-use Winter\Blog\Models\Post as PostModel;
+use Rainlab\Blog\Components\Post as PostComponent;
+use Rainlab\Blog\Models\Post as PostModel;
 use Cms\Classes\Controller;
 use DeviceDetector\Parser\Bot as BotParser;
 use Vdomah\BlogViews\Components\Popular;
@@ -24,9 +24,9 @@ class Plugin extends PluginBase
     const PARAM_TRACK_BOT = 'trackBot';
 
     /**
-     * @var array   Require the Winter.Blog plugin
+     * @var array   Require the RainLab.Blog plugin
      */
-    public $require = ['Winter.Blog'];
+    public $require = ['RainLab.Blog'];
 
     /**
      * @var string   Table to store post views count
@@ -215,7 +215,7 @@ class Plugin extends PluginBase
             'config' => [
                 'label'       => 'vdomah.blogviews::lang.plugin.name',
                 'description' => 'vdomah.blogviews::lang.plugin.description_settings',
-                'category'    => 'Winter.blog::lang.blog.menu_label',
+                'category'    => 'rainlab.blog::lang.blog.menu_label',
                 'icon'        => 'icon-signal',
                 'class'       => Settings::class,
                 'order'       => 501,

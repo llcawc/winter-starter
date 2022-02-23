@@ -4,30 +4,39 @@ description = "Default layout"
 <html lang="ru">
 
 <head>
-  <meta charset="utf-8" />
-  <title>Winter CMS Starter | {{ this.page.title }}</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="title" content="{{ this.page.meta_title }}">
-  <meta name="description" content="{{ this.page.meta_description }}">
-  <meta name="author" content="llcawc by pasmurno">
-  <link rel="icon" href="{{ 'assets/images/favicon.png'|theme }}" type="image/png">
-  <meta property="og:image" content="{{'assets/images/preview.jpg'|theme}}">
+  <meta charset="utf-8"/>
+  <title>Winter CMS Starter • {{ this.page.title }}</title>
+  <meta name="author" content="llcawc by pasmurno"/>
+  <meta name="title" content="{{ this.page.meta_title }}"/>
+  <meta name="description" content="{{ this.page.meta_description }}"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" href="{{'assets/images/favicon.webp'|theme}}" type="image/webp"/>
+  <meta property="og:image" content="{{'assets/images/preview.webp'|theme}}">
+  <!-- styles -->
   {% styles %}
-  <link rel="stylesheet" href="{{ 'assets/css/main.min.css'|theme }}" />
+  <!-- Compressed and components style file: bootstrap + libraries and custom -->
+  <link rel="preload" as="style" href="{{'assets/css/fonts.min.css'|theme}}"/>
+  <link rel="stylesheet" href="{{'assets/css/fonts.min.css'|theme}}" media="print" onload="this.media='all'"/>
+  <link rel="stylesheet" href="{{'assets/css/main.min.css'|theme}}" />
 </head>
 
 <body>
-
+  {% if this.page.title != '404' %}
   {% partial 'header' %}
-  <main role="main">{% page %}</main>
+  {% endif %}
+  <!-- display content -->
+    {% page %}
+  <!-- /display content -->
+  {% if this.page.title != '404' %}
   {% partial 'footer' %}
-
-  <!-- Scripts -->
-  <script src="{{ 'assets/js/lib.min.js'|theme }}"></script>
-  <script src="{{ 'assets/js/app.min.js'|theme }}"></script>
-  {% framework extras %}
-  {% scripts %}
-
+  {% partial 'popshare' %}
+  <!-- Compressed JavaScript: libraries and custom script -->
+  <script src="https://cdn.jsdelivr.net/combine/npm/jquery@3.6.0,npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  {% framework %}
+  {% scripts %}<!-- main -->
+  <script src="{{'assets/js/main.min.js'|theme}}"></script>
+  {% partial 'pswshare' %}
+  {% endif %}
 </body>
 
 </html>

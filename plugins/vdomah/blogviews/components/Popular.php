@@ -1,14 +1,14 @@
 <?php namespace Vdomah\BlogViews\Components;
 
 use Cms\Classes\ComponentBase;
-use Winter\Blog\Models\Post as BlogPost;
-use Winter\Blog\Models\Category as BlogCategory;
+use Rainlab\Blog\Models\Post as BlogPost;
+use Rainlab\Blog\Models\Category as BlogCategory;
 use Cms\Classes\Page;
 
 class Popular extends ComponentBase
 {
     /**
-     * @var Winter\Blog\Models\Post The post model used for display.
+     * @var Rainlab\Blog\Models\Post The post model used for display.
      */
     public $posts;
 
@@ -94,7 +94,7 @@ class Popular extends ComponentBase
          * List all the posts
          */
         $query = BlogPost::isPublished()
-            ->leftJoin('vdomah_blogviews_views as pv', 'pv.post_id', '=', 'Winter_blog_posts.id')
+            ->leftJoin('vdomah_blogviews_views as pv', 'pv.post_id', '=', 'rainlab_blog_posts.id')
         ;
 
         $category_slug = $this->property('category');

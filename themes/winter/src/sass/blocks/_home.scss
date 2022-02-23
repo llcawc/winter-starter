@@ -1,0 +1,111 @@
+// home.scss
+
+.nav-autohide {
+  min-height: 4rem;
+  transition: transform 0.5s;
+}
+
+.nav-autohide.is-hidden {
+  transform: translateY(-4rem);
+}
+
+.bi {
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-bottom: 0.1875rem;
+}
+
+.section {
+  text-align: center;
+  margin: $gutter auto;
+  padding: ($gutter * 0.5) 0;
+  background-color: $gray-100;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.of-cover {
+  object-fit: cover;
+}
+
+.figure-hover {
+  box-shadow: none;
+  transform: scale(1);
+  transition: 0.4s all;
+  &:hover {
+    transform: scale(1.0125);
+    box-shadow: 0 0.25rem 1rem rgba(#000, 0.3);
+  }
+}
+
+.gallery {
+  margin: $gutter 0;
+  padding: $gutter 0;
+}
+.gallery-item {
+  display: inline-block;
+  break-inside: avoid;
+  page-break-inside: avoid;
+  width: 100%;
+  height: auto;
+  padding: 0.25rem;
+  margin: 0 0 $gutter * 0.5 0;
+  border-radius: 0.25rem;
+  border: 1px solid $gray-300;
+  box-shadow: none;
+  filter: brightness(0.9);
+  transition-property: transform, opacity, filter, box-shadow !important;
+
+  &:hover {
+    filter: brightness(1);
+    box-shadow: 0 0 8px rgba(#000, 0.25);
+  }
+  @media (min-width: 460px) {
+    width: calc(50% - $gutter * 0.5);
+    margin-left: $gutter * 0.25;
+    margin-right: $gutter * 0.25;
+  }
+  @include media-breakpoint-up(md) {
+    width: calc(33.33% - $gutter * 0.5);
+  }
+  @include media-breakpoint-up(lg) {
+    width: calc(25% - $gutter * 0.5);
+  }
+  @include media-breakpoint-up(xl) {
+    width: calc(100%/7 - $gutter * 0.5);
+  }
+}
+
+.blog-img,
+.post-img {
+  @include media-breakpoint-up(md) {
+    margin-right: 1rem;
+    max-width: 25%;
+  }
+}
+.blank-wrapper {
+  margin-top: -4rem; //64px
+  height: 100vh;
+  border-left: 1px dotted $gray-600;
+  border-right: 1px dotted $gray-600;
+}
+.custom-html-slide {
+  position: absolute;
+  font-size: calc(1.5rem + 1vh);
+  line-height: 1.2;
+  color: #fff;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 67%;
+  height: auto;
+  text-align: center;
+}
+.custom-html-slide a {
+  color: #fff;
+  text-decoration: underline;
+}

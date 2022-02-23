@@ -10,8 +10,8 @@
             class="list-group-item {{ category.slug == currentCategorySlug ? 'active' }}"
             >{{ category.name }}
             {% if postCount %}
-                <span class="badge">{{ postCount }}</span>
+                <span class="badge bg-secondary">{{ postCount }}</span>
             {% endif %}
-        </a> 
+        </a>
     {% endfor %}
 </div>

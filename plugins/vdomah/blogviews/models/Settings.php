@@ -1,6 +1,6 @@
 <?php namespace Vdomah\BlogViews\Models;
 
-use Winter\Storm\Database\Model;
+use October\Rain\Database\Model;
 use System\Classes\PluginManager;
 
 class Settings extends Model

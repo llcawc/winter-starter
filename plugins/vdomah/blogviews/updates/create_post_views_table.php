@@ -1,7 +1,7 @@
 <?php namespace Vdomah\User\Updates;
 
 use Schema;
-use Winter\Storm\Database\Updates\Migration;
+use October\Rain\Database\Updates\Migration;
 
 class CreatePostViewsTable extends Migration
 {
