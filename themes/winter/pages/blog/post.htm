@@ -54,11 +54,9 @@ function onEnd()
       {% if post.featured_images.count %}
       <div class="gallery pswp-gallery">
         {% for image in post.featured_images %}
-        <figure class="gallery-item">
-          <a {{ image.description|raw }} href="{{ image.path }}" title="{{ image.title }}" data-cropped="true" target="_blank">
-            <img data-src="{{ image.filename }}" src="{{ image.path }}" alt="{{ image.filename }}" />
+          <a class="gallery-item" data-size="{{ image.description }}" href="{{ image.path }}" title="{{ image.title }}" data-cropped="true" target="_blank">
+            <img src="{{ image.path }}" alt="{{ image.filename }}" data-capt='{{ image.title }}' />
           </a>
-        </figure>
         {% endfor %}
       </div>
       {% endif %}

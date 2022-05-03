@@ -4,8 +4,8 @@
 const theme = 'winter' // Theme folder name
 const paths = {
   deploy: {
-    hostname: 'hostname.com', // Deploy hostname
-    destination: 'domen.com/www/', // Deploy destination
+    hostname: 'u198985@u198985.ssh.masterhost.ru', // Deploy hostname
+    destination: 'ceterra.ru/www/', // Deploy destination
     include: ['*.htaccess', 'download'], // Included files to deploy
     exclude: [
       // Excluded files from deploy
